@@ -1,0 +1,31 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1706180999216,172,Sample 1,200,OK,Thread Group 1-1,text,true,,12,7,1,1,null,0,0,0
+1706180999397,351,Sample 2,200,OK,Thread Group 1-1,text,true,,17,7,2,2,null,0,0,0
+1706180999541,241,Sample 1,200,OK,Thread Group 1-2,text,true,,15,7,2,2,null,0,0,0
+1706180999748,192,Sample 1,200,OK,Thread Group 1-1,text,true,,15,7,3,3,null,0,0,0
+1706180999784,228,Sample 2,200,OK,Thread Group 1-2,text,true,,20,7,3,3,null,0,0,0
+1706180999941,130,Sample 2,200,OK,Thread Group 1-1,text,true,,20,7,3,3,null,0,0,0
+1706180999874,319,Sample 1,200,OK,Thread Group 1-3,text,false,Test failed: text expected not to contain /3/,15,7,3,3,null,0,0,0
+1706181000015,203,Sample 1,200,OK,Thread Group 1-2,text,true,,15,7,3,3,null,0,0,0
+1706181000193,127,Sample 2,200,OK,Thread Group 1-3,text,true,,20,7,3,3,null,0,0,0
+1706181000071,262,Sample 1,200,OK,Thread Group 1-1,text,true,,15,7,3,3,null,0,0,0
+1706181000218,154,Sample 2,200,OK,Thread Group 1-2,text,true,,20,7,3,3,null,0,0,0
+1706181000321,254,Sample 1,200,OK,Thread Group 1-3,text,true,,15,7,3,3,null,0,0,0
+1706181000333,267,Sample 2,200,OK,Thread Group 1-1,text,true,,20,7,3,3,null,0,0,0
+1706181000372,307,Sample 1,200,OK,Thread Group 1-2,text,true,,15,7,3,3,null,0,0,0
+1706181000679,103,Sample 2,200,OK,Thread Group 1-2,text,true,,20,7,3,3,null,0,0,0
+1706181000576,256,Sample 2,200,OK,Thread Group 1-3,text,true,,20,7,3,3,null,0,0,0
+1706181000601,280,Sample 1,200,OK,Thread Group 1-1,text,true,,15,7,3,3,null,0,0,0
+1706181000782,207,Sample 1,200,OK,Thread Group 1-2,text,true,,15,7,3,3,null,0,0,0
+1706181000833,257,Sample 1,200,OK,Thread Group 1-3,text,true,,16,7,3,3,null,0,0,0
+1706181000990,159,Sample 2,200,OK,Thread Group 1-2,text,true,,20,7,3,3,null,0,0,0
+1706181000882,306,Sample 2,200,OK,Thread Group 1-1,text,true,,20,7,3,3,null,0,0,0
+1706181001188,102,Sample 1,200,OK,Thread Group 1-1,text,true,,16,7,3,3,null,0,0,0
+1706181001090,260,Sample 2,200,OK,Thread Group 1-3,text,true,,21,7,3,3,null,0,0,0
+1706181001150,318,Sample 1,200,OK,Thread Group 1-2,text,true,,16,7,3,3,null,0,0,0
+1706181001290,205,Sample 2,200,OK,Thread Group 1-1,text,true,,21,7,3,3,null,0,0,0
+1706181001469,128,Sample 2,200,OK,Thread Group 1-2,text,true,,21,7,2,2,null,0,0,0
+1706181001350,265,Sample 1,200,OK,Thread Group 1-3,text,false,Test failed: text expected not to contain /3/,16,7,1,1,null,0,0,0
+1706181001615,275,Sample 2,200,OK,Thread Group 1-3,text,true,,21,7,1,1,null,0,0,0
+1706181001891,295,Sample 1,200,OK,Thread Group 1-3,text,true,,16,7,1,1,null,0,0,0
+1706181002187,336,Sample 2,200,OK,Thread Group 1-3,text,true,,21,7,1,1,null,0,0,0

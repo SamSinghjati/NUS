@@ -1,0 +1,2 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1706181004486,45,HTTP Request,404,,Thread Group 1-1,,false,"The operation lasted too long: It took 45 milliseconds, but should not have lasted longer than 10 milliseconds.",392,140,1,1,http://localhost:8443/api/products/1/category,44,0,15

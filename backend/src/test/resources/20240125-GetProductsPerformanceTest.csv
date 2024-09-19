@@ -1,0 +1,3 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1706180996989,78,HTTP Get Products Request,200,,Thread Group 1-1,text,true,,813,137,1,1,http://localhost:8443/api/product-category,75,0,25
+1706180997071,7,HTTP Payment Intent Post Request,200,,Thread Group 1-1,text,true,,648,284,1,1,http://localhost:8443/api/checkout/payment-intent,7,0,0

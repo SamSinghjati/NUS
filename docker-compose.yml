@@ -1,0 +1,105 @@
+version: '3.4'
+services:
+### MySQL Container
+    mysql:
+        container_name: nus-db
+        build:
+            context: ./mysql
+            
+            args:
+                - MYSQL_DATABASE=${MYSQL_DATABASE}
+                - MYSQL_USER=${MYSQL_USER}
+                - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+                - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+                - MYSQL_PORT=${MYSQL_PORT}
+        env_file: .env
+        environment:
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            
+        ports:
+            - 3306:3306
+        networks:
+          - NUS-network
+        volumes:
+          - mysqldb:/var/lib/mysql
+
+    
+          
+    zookeeper:
+      container_name: zookeeper
+      image: confluentinc/cp-zookeeper:latest
+      environment:
+        ZOOKEEPER_CLIENT_PORT: 2181
+        ZOOKEEPER_TICK_TIME: 2000
+      ports:
+        - 22181:2181
+      networks:
+        - NUS-network
+  
+    kafka:
+      container_name: kafka
+      image: confluentinc/cp-kafka:latest
+      depends_on:
+        - zookeeper
+      ports:
+        - 29092:29092
+        - 9092:9092
+      environment:
+        KAFKA_BROKER_ID: 1
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+        KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+        KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+        LISTENERS: PLAINTEXT://0.0.0.0:9092
+        KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      networks:
+        - NUS-network
+
+    nus-backend:
+      container_name: nus-backend
+      build: 
+          context: ./backend
+      ports:
+          - 8443:8443
+      depends_on:
+        - mysql
+        # - nus_redis
+      volumes:
+      - ./backend:/home/app
+      networks:
+        - NUS-network
+    
+    nus-frontend:
+      container_name: nus-frontend
+      build: 
+        context: ./frontend
+      ports:
+        - 4200:80
+      depends_on:
+        - nus-backend
+      networks:
+        - NUS-network
+      volumes:
+        - ./:/app
+        - node_modules:/app/node_modules
+      
+
+    nus-redis:
+      container_name: nus-redis
+      image: redis
+      ports:
+       - "6379:6379"
+      command: redis-server --requirepass root
+      restart: always
+      networks:
+       - NUS-network
+      
+        
+networks:
+  NUS-network:
+volumes:
+  node_modules:
+  mysqldb:
+   
+             
